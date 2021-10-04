@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseAPI: 'https://api.github.com/search/issues',
+  repoName: 'reactjs/reactjs.org',
 };
 
 /*
