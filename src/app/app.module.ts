@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ResultComponent } from './result/result.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent, SearchComponent, ResultComponent],
@@ -23,6 +27,10 @@ import { ResultComponent } from './result/result.component';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatListModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

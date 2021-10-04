@@ -1,1 +1,27 @@
-{{ issue | json }}
+<mat-expansion-panel *ngIf="issue" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Title: {{ issue.title }} </mat-panel-title>
+    <mat-panel-description>
+      <span class="ellipsis"> {{ issue.description }} </span>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-list>
+    <mat-list-item class="height-auto"
+      >Tags:
+      <span *ngFor="let label of issue.labels">
+        {{ label.name }}
+        <mat-divider></mat-divider>
+      </span>
+    </mat-list-item>
+
+    <mat-list-item class="height-auto" *ngIf="issue.description"
+      >Description: {{ issue.description }}</mat-list-item
+    >
+    <mat-divider></mat-divider>
+    <mat-list-item>URL: {{ issue.url }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item
+      >Is Closed: {{ issue.closed_at ? "True" : "False" }}
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>

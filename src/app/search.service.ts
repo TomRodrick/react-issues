@@ -24,6 +24,9 @@ export class SearchService {
           results.push({
             title: result.title,
             labels: result.labels,
+            description: result.body,
+            closed_at: result.closed_at,
+            url: result.url,
           });
         });
 
