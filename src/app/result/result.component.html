@@ -6,21 +6,22 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
   <mat-list>
-    <mat-list-item class="height-auto"
-      >Tags:
+    <mat-list-item class="height-auto py-1"
+      >Tags: &nbsp;
       <span *ngFor="let label of issue.labels">
         {{ label.name }}
-        <mat-divider></mat-divider>
       </span>
     </mat-list-item>
-
-    <mat-list-item class="height-auto" *ngIf="issue.description"
+    <mat-divider></mat-divider>
+    <mat-list-item class="height-auto py-1" *ngIf="issue.description"
       >Description: {{ issue.description }}</mat-list-item
     >
     <mat-divider></mat-divider>
-    <mat-list-item>URL: {{ issue.url }}</mat-list-item>
+    <mat-list-item class="py-1"
+      >URL: &nbsp; <a [attr.href]="issue.html_url"> {{ issue.html_url }}</a>
+    </mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item
+    <mat-list-item class="py-1"
       >Is Closed: {{ issue.closed_at ? "True" : "False" }}
     </mat-list-item>
   </mat-list>

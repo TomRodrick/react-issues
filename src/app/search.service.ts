@@ -1,8 +1,8 @@
 import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
 
 import { formattedIssue } from './interfaces/Issue';
 
@@ -18,20 +18,30 @@ export class SearchService {
     }`;
 
     return this.http.get(environment.baseAPI + query).pipe(
+      catchError((err: any) => {
+        console.error(err);
+        return throwError(err.error.message);
+      }),
       map((value: any) => {
-        let results: Array<formattedIssue> = [];
-        value.items.forEach((result: formattedIssue) => {
-          results.push({
-            title: result.title,
-            labels: result.labels,
-            description: result.body,
-            closed_at: result.closed_at,
-            url: result.url,
-          });
-        });
-
+        let results = this.formatResults(value);
         return results;
       })
     );
+  }
+
+  formatResults(records: any): Array<formattedIssue> {
+    let results: Array<formattedIssue> = [];
+
+    records.items.forEach((result: formattedIssue) => {
+      results.push({
+        title: result.title,
+        labels: result.labels,
+        description: result.body,
+        closed_at: result.closed_at,
+        html_url: result.html_url,
+      });
+    });
+
+    return results;
   }
 }

@@ -1,5 +1,18 @@
 <mat-card class="card">
   <div>
-    <ngx-search></ngx-search>
+    <ngx-search
+      (newErrorEvent)="setError($event)"
+      (newResultEvent)="setResult($event)"
+    ></ngx-search>
+
+    <div class="w-75">
+      <ng-template #errorDisplay>
+        <ngx-error-display [errorMessage]="errorMsg"></ngx-error-display>
+      </ng-template>
+
+      <div *ngIf="!errorMsg; else errorDisplay" class="result">
+        <ngx-result [issue]="result"> </ngx-result>
+      </div>
+    </div>
   </div>
 </mat-card>

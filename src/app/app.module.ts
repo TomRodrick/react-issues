@@ -15,9 +15,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { ErrorDisplayComponent } from './error-display/error-display.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, ResultComponent],
+  declarations: [AppComponent, SearchComponent, ResultComponent, ErrorDisplayComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -7,7 +7,7 @@ import { formattedIssue } from '../interfaces/Issue';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent implements OnInit {
-  @Input() issue: formattedIssue;
+  @Input() issue: formattedIssue | undefined;
 
   constructor() {}
 

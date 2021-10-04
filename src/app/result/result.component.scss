@@ -4,6 +4,10 @@
   text-overflow: ellipsis;
   width: 30em;
 }
-.height-auto {
-  height: auto !important; //required to override material styling
+mat-list-item.height-auto {
+  height: auto;
+}
+
+mat-list-item.py-1 {
+  padding: 1em 0;
 }
